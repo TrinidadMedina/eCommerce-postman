@@ -75,18 +75,22 @@ class ProductService{
             const newList = await products.data.map(i => {
                 if(i.uuid === uuid){
                     return {
-                        title: data.title,
+                        name: data.name,
+                        description: data.description,
+                        code: data.code,
+                        image: data.image,
                         price: data.price,
-                        thumbnail: data.thumbnail,
+                        stock: data.stock,
+                        time: i.time,
                         uuid
-                    }
+                    }  
                 }
                 return i;
             });
             fs.writeFileSync(__dirname + '/products.json', JSON.stringify(newList, null, 2)); 
             return {
                 success: true,
-                message: `Product ${uuid} updated successfully`
+                message: `Producto ${data.name} fue actualizado`
             } 
         }catch(err){
             console.error(err);

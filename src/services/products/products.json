@@ -1,38 +1,41 @@
 [
   {
-    "title": "Pera",
-    "price": 3124,
-    "thumbnail": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
-    "uuid": "3a433db4-1271-40c9-9f26-cfd59ad05a5f"
+    "name": "Pera",
+    "description": "Fruta verde y jugosa",
+    "code": 1001,
+    "image": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
+    "price": 2000,
+    "stock": 150,
+    "time": "2022-11-17T22:11:45.661Z",
+    "uuid": "7eba0468-717a-4336-91c0-c20c2691aa9b"
   },
   {
-    "title": "Helado",
-    "price": "1000",
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
-    "uuid": "95455768-f4a7-4f19-b20c-d81e2dedd91b"
+    "name": "Helado",
+    "description": "Postre de crema frío",
+    "code": 2001,
+    "image": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
+    "price": 1750,
+    "time": "2022-11-17T22:13:04.495Z",
+    "uuid": "b9a935fd-3236-4f78-867f-7f31a5bd6165"
   },
   {
-    "title": "Tomatito",
-    "price": "700",
-    "thumbnail": "https://cdn4.iconfinder.com/data/icons/vegetables-i/95/02-512.png",
-    "uuid": "0d6c795f-80b0-457f-b1de-3b259b75731a"
+    "name": "Tomate",
+    "description": "Fruta de verano muy rica",
+    "code": 1001,
+    "image": "https://cdn4.iconfinder.com/data/icons/vegetables-i/95/02-512.png",
+    "price": 600,
+    "stock": 430,
+    "time": "2022-11-17T22:14:11.801Z",
+    "uuid": "d7bd4dce-554e-4152-bd86-adf5e8ca8444"
   },
   {
-    "title": "Papas fritas",
-    "price": "3500",
-    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
-    "uuid": "1bdb9745-d45e-40c4-ad78-5e996b182760"
-  },
-  {
-    "title": "Papas fritas",
-    "price": "3500",
-    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
-    "uuid": "b781609a-3306-431b-ba1f-47ed2bf3318c"
-  },
-  {
-    "title": "Papas fritas",
-    "price": "3500",
-    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
-    "uuid": "bd527dcd-8ba4-40d9-9858-12e402ef2d70"
+    "name": "Papas Fritas",
+    "description": "Comida hecha de papa frita en aceite y sal",
+    "code": 2001,
+    "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "price": 2300,
+    "stock": 43,
+    "time": "2022-11-17T22:16:23.926Z",
+    "uuid": "43e4d3f6-7d05-4d2d-a319-3f034bae942d"
   }
 ]

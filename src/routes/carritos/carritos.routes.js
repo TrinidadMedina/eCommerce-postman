@@ -32,7 +32,7 @@ router.post('/', async (req, res, next)=>{
     } 
 }) 
 
-router.post('/:idCarro/:idProducto', async (req, res, next)=>{
+router.post('/:idCarro/producto/:idProducto', async (req, res, next)=>{
     try{
         const {idCarro} = req.params;
         const {idProducto} = req.params;

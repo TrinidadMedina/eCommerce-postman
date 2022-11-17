@@ -51,7 +51,7 @@ class CarritosServices{
             fs.writeFileSync(__dirname + '/carritos.json', JSON.stringify(newList, null, 2));
             return{
                 success: true,
-                message: `Producto ${selectedProduct.title} agregado al carro ${selectedCarro.name}`,
+                message: `Producto ${selectedProduct.name} agregado al carro ${selectedCarro.name}`,
             }
         }catch(err){
             console.error(err);
@@ -147,8 +147,6 @@ class CarritosServices{
             }
         }
     };
-
-   // e. DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto
 
    async deleteCarritoProduct(idCarro, idProducto){
     try{

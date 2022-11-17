@@ -7,14 +7,13 @@ const router = express.Router();
 
 const productService = new ProductService();
 
-let admin = false
-
  router.post('/', async (req, res, next)=>{
     try{
         const {body} = req;
         if(_.isEmpty(body))(res.status(400).json({success: false, message: 'REQ ERROR (Body missing)'}))
-        if(_.isNil(body.title) || _.isNil(body.price) || _.isNil(body.thumbnail))(res.status(400).json({success: false, message: 'REQ ERROR (Wrong attributes)'}))
+        if(_.isNil(body.name) || _.isNil(body.description) || _.isNil(body.code) || _.isNil(body.image) || _.isNil(body.price) || _.isNil(body.stock))(res.status(400).json({success: false, message: 'REQ ERROR (Wrong attributes)'}));
         Object.assign(body, {
+            time: new Date(),
             uuid: uuidv4()
         });
         const data = await productService.createProduct(body);
@@ -51,10 +50,18 @@ router.put('/:id', async(req, res, next) => {
     try{
         const { id } = req.params;
         const {body} = req;
-        if(_.isEmpty(body))(res.status(400).json({success: false, message: "Req error (body missing)"}));
-        const data = await productService.updateProduct(id, body)
-        if(!data.success)(res.status(400).json(data))
-        res.status(200).json(data.data);
+        if(_.isEmpty(body)){
+            res.status(400).json({success: false, message: "Falta llenar los datos en el Body"})
+        }else if(_.isNil(body.name) || _.isNil(body.description) || _.isNil(body.code) || _.isNil(body.image) || _.isNil(body.price) || _.isNil(body.stock)){
+            res.status(400).json({success: false, message: 'Falta algún atributo del producto'})
+        }else{
+            const data = await productService.updateProduct(id, body)
+            if(!data.success){
+                res.status(400).json(data)
+            } else {
+                res.status(200).json(data);
+            } 
+        }
     }catch(err){
         next(err);
     }

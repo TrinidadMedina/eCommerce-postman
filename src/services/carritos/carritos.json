@@ -5,10 +5,34 @@
     "time": "2022-11-17T19:21:38.208Z",
     "products": [
       {
-        "title": "Pera",
-        "price": 3124,
-        "thumbnail": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
-        "uuid": "3a433db4-1271-40c9-9f26-cfd59ad05a5f"
+        "name": "Papas Fritas",
+        "description": "Comida hecha de papa frita en aceite y sal",
+        "code": 2001,
+        "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+        "price": 2300,
+        "stock": 43,
+        "time": "2022-11-17T22:16:23.926Z",
+        "uuid": "43e4d3f6-7d05-4d2d-a319-3f034bae942d"
+      },
+      {
+        "name": "Helado",
+        "description": "Postre de crema frío",
+        "code": 2001,
+        "image": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
+        "price": 1500,
+        "stock": 65,
+        "time": "2022-11-17T22:13:04.495Z",
+        "uuid": "b9a935fd-3236-4f78-867f-7f31a5bd6165"
+      },
+      {
+        "name": "Helado",
+        "description": "Postre de crema frío",
+        "code": 2001,
+        "image": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
+        "price": 1500,
+        "stock": 65,
+        "time": "2022-11-17T22:13:04.495Z",
+        "uuid": "b9a935fd-3236-4f78-867f-7f31a5bd6165"
       }
     ]
   },
@@ -18,10 +42,14 @@
     "time": "2022-11-17T21:53:15.647Z",
     "products": [
       {
-        "title": "Papas fritas",
-        "price": "3500",
-        "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
-        "uuid": "1bdb9745-d45e-40c4-ad78-5e996b182760"
+        "name": "Pera",
+        "description": "Fruta verde y jugosa",
+        "code": 1001,
+        "image": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
+        "price": 2000,
+        "stock": 150,
+        "time": "2022-11-17T22:11:45.661Z",
+        "uuid": "7eba0468-717a-4336-91c0-c20c2691aa9b"
       }
     ]
   }
