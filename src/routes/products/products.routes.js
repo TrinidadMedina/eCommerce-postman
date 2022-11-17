@@ -9,18 +9,7 @@ const productService = new ProductService();
 
 let admin = false
 
-router.post('/', async (req, res, next)=>{
-    try{
-        const {body} = req;
-        body.userType === 'admin' ? admin = true : admin = false;
-        console.log(admin)
-        res.redirect('/api/productos')
-    }catch(err){
-       next(err) 
-    } 
-})
-
- router.post('/create', async (req, res, next)=>{
+ router.post('/', async (req, res, next)=>{
     try{
         const {body} = req;
         if(_.isNil(body))(res.status(400).json({success: false, message: 'REQ ERROR (Body missing'}))
@@ -29,7 +18,7 @@ router.post('/', async (req, res, next)=>{
         });
         const data = await productService.createProduct(body);
         if(!data.success)(res.status(500).json(data))
-        res.redirect('/api/productos')
+        res.status(200).json(data.data)
     }catch(err){
        next(err) 
     } 
@@ -40,7 +29,7 @@ router.get('/', async (_req, res, next)=>{
         const data = await productService.getProducts();
         if(!data.success)(res.status(500).json(data))
         data.admin = admin;
-        res.render('index.ejs', {options: data})
+        res.status(200).json(data.data)
     }catch(err){
         next(err) 
     }
@@ -125,7 +114,7 @@ router.get('/:productUuid', async (req, res, next) => {
         if(_.isNil(productUuid))(res.status(400).json({success: false, message: "Req error"}));
         const data = await productService.getProduct(productUuid)
         if(!data.success)(res.status(500).json(data))
-        res.render('index.ejs', {options: data})
+        res.status(200).json(data.data)
     }catch(err){
         next(err);
     }

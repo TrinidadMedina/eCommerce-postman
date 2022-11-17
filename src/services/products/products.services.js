@@ -42,7 +42,7 @@ class ProductService{
 
     async getProduct(uuid){
         try{
-            const products = await fs.promises.readFile(__dirname + '/products.json');
+            const products = fs.readFileSync(__dirname + '/products.json');
             const productsObject = JSON.parse(products);
             const product = productsObject.filter(i => i.uuid == uuid);
             return {

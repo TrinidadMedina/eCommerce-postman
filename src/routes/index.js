@@ -3,8 +3,6 @@ const router = express.Router();
 const productsRoutes = require('./products/products.routes');
 const carritosRoutes = require('./carritos/carritos.routes');
 
-let admin = false;
-
 router.get('/health', async (_req, res)=>{
     res.status(200).json({
         siccess: true,
