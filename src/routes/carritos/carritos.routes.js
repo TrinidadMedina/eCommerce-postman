@@ -7,31 +7,108 @@ const router = express.Router();
 
 const carritosServices = new CarritosServices();
 
+/* 
+b. DELETE: '/:id' - Vacía un carrito y lo elimina.
+c. GET: '/:id/productos' - Me permite listar todos los productos guardados en el carrito
+d. POST: '/:id/:id_prod' - Para incorporar productos al carrito por su id de producto
+e. DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de
+producto
+ */
+
 router.post('/', async (req, res, next)=>{
     try{
         const {body} = req;
-        if(_.isNil(body))(res.status(400).json({success: false, message: 'REQ ERROR (Body missing'}))
+        if(_.isEmpty(body))(res.status(400).json({success: false, message: 'REQ ERROR (Name missing)'}))
         Object.assign(body, {
-            uuid: uuidv4()
+            uuid: uuidv4(),
+            time: new Date(),
+            products: []   
         });
-        const data = await carritosServices.createProduct(body);
-        if(!data.success)(res.status(500).json(data))
-        res.redirect('/')
+        const data = await carritosServices.createCarrito(body);
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data) 
     }catch(err){
        next(err) 
     } 
-})
+}) 
+
+router.post('/:idCarro/:idProducto', async (req, res, next)=>{
+    try{
+        const {idCarro} = req.params;
+        const {idProducto} = req.params;
+        const data = await carritosServices.insertProduct(idCarro, idProducto);
+        if(!data.success){
+            res.status(400).json(data)
+        }else{
+            res.status(200).json(data) 
+        }    
+    }catch(err){
+       next(err) 
+    } 
+});
 
 router.get('/', async (_req, res, next)=>{
     try{
-        const data = await carritoService.getProducts();
-        if(!data.success)(res.status(500).json(data))
-        res.render('index.ejs', {options: data.data})
+        const data = await carritosServices.getCarritos();
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data.data)
     }catch(err){
         next(err) 
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try{
+        const {id} = req.params;
+        const data = await carritosServices.getCarrito(id)
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data.data)
+    }catch(err){
+        next(err);
+    }
+});
+
+router.get('/:id/productos', async (req, res, next) => {
+    try{
+        const {id} = req.params;
+        const data = await carritosServices.getCarritoProducts(id)
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data.data)
+    }catch(err){
+        next(err);
+    }
+});
+
+router.delete('/:idCarro/productos/:idProducto', async (req, res, next)=>{
+    try{
+        const {idCarro} = req.params;
+        const {idProducto} = req.params;
+        const data = await carritosServices.deleteCarritoProduct(idCarro, idProducto);
+        if(!data.success){
+            res.status(400).json(data)
+        }else{
+            res.status(200).json(data) 
+        }    
+    }catch(err){
+       next(err) 
+    } 
+});
+
+router.delete('/:idCarro', async (req, res, next)=>{
+    try{
+        const {idCarro} = req.params;
+        const data = await carritosServices.deleteCarrito(idCarro);
+        if(!data.success){
+            res.status(400).json(data)
+        }else{
+            res.status(200).json(data) 
+        }    
+    }catch(err){
+       next(err) 
+    } 
+});
+
+/* 
 router.get('/:id', (req, res)=>{
     try{
         const id = parseInt(req.params.id);
@@ -85,6 +162,6 @@ router.delete('/:id', (req, res)=>{
             error: err.message
         })
     }
-});
+}); */
 
 module.exports = router;

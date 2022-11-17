@@ -12,13 +12,14 @@ let admin = false
  router.post('/', async (req, res, next)=>{
     try{
         const {body} = req;
-        if(_.isNil(body))(res.status(400).json({success: false, message: 'REQ ERROR (Body missing'}))
+        if(_.isEmpty(body))(res.status(400).json({success: false, message: 'REQ ERROR (Body missing)'}))
+        if(_.isNil(body.title) || _.isNil(body.price) || _.isNil(body.thumbnail))(res.status(400).json({success: false, message: 'REQ ERROR (Wrong attributes)'}))
         Object.assign(body, {
             uuid: uuidv4()
         });
         const data = await productService.createProduct(body);
-        if(!data.success)(res.status(500).json(data))
-        res.status(200).json(data.data)
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data)
     }catch(err){
        next(err) 
     } 
@@ -27,106 +28,44 @@ let admin = false
 router.get('/', async (_req, res, next)=>{
     try{
         const data = await productService.getProducts();
-        if(!data.success)(res.status(500).json(data))
-        data.admin = admin;
+        if(!data.success)(res.status(400).json(data))
         res.status(200).json(data.data)
     }catch(err){
         next(err) 
     }
 })
 
-/* router.get('/:id', async (req, res)=>{
+router.get('/:id', async (req, res, next) => {
     try{
-        const id = req.params.id;
-        const data = await productService.getProducts();
-        if(!data.success)(res.status(500).json(data));
-        const selected = data.data.filter(i => i.uuid === id);
-        data.data = selected;
-        if(selected.length===0){
-            return res.status(400).json({
-                error: 'Producto no encontrado'
-            })
-        }
-        res.render('index.ejs', {options: data})
-    }catch(err){
-        res.status(500).json({
-            error: err.message
-        })
-    }
-}); */
-
-/* router.put('/:id', (req, res)=>{
-    try{
-        const {body} = req;
-        const id = parseInt(req.params.id);
-        body.id = id;
-        const prod = productos.find(i=>i.id===id);
-        if(!prod){
-            return res.status(400).json({
-                error: 'Producto no encontrado'
-            })
-        }
-        productos[productos.indexOf(prod)] = body;
-        res.status(200).json({productos})
-    }catch(err){
-        res.status(500).json({
-            error: err.message
-        })
-    }
-}); */
-
-/* router.delete('/', (req, res)=>{
-    try{
-        const id = parseInt(req.params.id);
-        const prod = productos.find(i=>i.id===id);
-        if(!prod){
-            return res.status(400).json({
-                error: 'Producto no encontrado'
-            })
-        }
-        productos = productos.filter(i => i.uuid !== id);
-        res.status(200).json({productos})
-    }catch(err){
-        res.status(500).json({
-            error: err.message
-        })
-    }
-}); */
-
-router.put('/:productUuid', async(req, res, next) => {
-    try{
-        const { productUuid } = req.params;
-        const {body} = req;
-        console.log(body)
-        //if(_.isNil(productUuid) || _.isNil(body))(res.status(400).json({success: false, message: "Req error"}));
-        //if(body)(res.status(400).json({success: false, message: "Req error"}));
-        const data = await productService.updateProduct(productUuid, body)
-        if(!data.success)(res.status(500).json(data))
-        res.status(200).json(data);
-    }catch(err){
-        next(err);
-    }
-});
-
-router.get('/:productUuid', async (req, res, next) => {
-    try{
-        const {productUuid} = req.params;
-        if(_.isNil(productUuid))(res.status(400).json({success: false, message: "Req error"}));
-        const data = await productService.getProduct(productUuid)
-        if(!data.success)(res.status(500).json(data))
+        const {id} = req.params;
+        if(_.isNil(id))(res.status(400).json({success: false, message: "Req error"}));
+        const data = await productService.getProduct(id)
+        if(!data.success)(res.status(400).json(data))
         res.status(200).json(data.data)
     }catch(err){
         next(err);
     }
 });
 
-router.delete('/:productUuid', async (req, res, next) => {
+router.put('/:id', async(req, res, next) => {
     try{
-        const {productUuid} = req.params;
-        if(_.isNil(productUuid))(res.status(400).json({success: false, message: "Req error"}));
-        const data = await productService.deleteProduct(productUuid);
-        if(!data.success)(res.status(500).json(data))
-        res.status(200).json(data);
+        const { id } = req.params;
+        const {body} = req;
+        if(_.isEmpty(body))(res.status(400).json({success: false, message: "Req error (body missing)"}));
+        const data = await productService.updateProduct(id, body)
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data.data);
+    }catch(err){
+        next(err);
+    }
+});
+
+router.delete('/:id', async (req, res, next) => {
+    try{
+        const {id} = req.params;
+        const data = await productService.deleteProduct(id);
+        if(!data.success)(res.status(400).json(data))
+        res.status(200).json(data.data);
     }catch(err){
         next(err);
     }

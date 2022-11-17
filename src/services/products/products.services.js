@@ -11,7 +11,7 @@ class ProductService{
             fs.writeFileSync(__dirname + '/products.json', JSON.stringify(productsObject, null, 2));
             return{
                 success: true,
-                admin: true,
+                message: `Producto id: ${data.uuid} creado con éxito`,
                 data
             }
         }catch(err){
@@ -28,8 +28,7 @@ class ProductService{
             const data = fs.readFileSync(__dirname + '/products.json')
             return{
                 success: true,
-                data: JSON.parse(data),
-                admin: false
+                data: JSON.parse(data)
             }
         }catch(err){
             console.error(err);
@@ -42,14 +41,17 @@ class ProductService{
 
     async getProduct(uuid){
         try{
-            const products = fs.readFileSync(__dirname + '/products.json');
-            const productsObject = JSON.parse(products);
-            const product = productsObject.filter(i => i.uuid == uuid);
+            const products = await this.getProducts();
+            const product = products.data.filter(i => i.uuid == uuid);
+            if(product.length===0){
+                return {
+                    success: false,
+                    message: `No hay productos con ID: ${uuid}`
+                }
+            }
             return {
                 success: true,
-                data: product,
-                admin: false
-
+                data: product
             }
         }catch(err){
             console.error(err);
@@ -63,8 +65,15 @@ class ProductService{
     async updateProduct(uuid, data){
         try{
             const products = await this.getProducts();
+            const result = products.data.find( prod => prod.uuid === uuid );
+            if(result === undefined){
+                return {
+                    success: false,
+                    message: `No hay productos con ID: ${uuid}`
+                }
+            } 
             const newList = await products.data.map(i => {
-                if(i.uuid == uuid){
+                if(i.uuid === uuid){
                     return {
                         title: data.title,
                         price: data.price,
@@ -77,7 +86,7 @@ class ProductService{
             fs.writeFileSync(__dirname + '/products.json', JSON.stringify(newList, null, 2)); 
             return {
                 success: true,
-                data: `Product ${uuid} updated successfully`
+                message: `Product ${uuid} updated successfully`
             } 
         }catch(err){
             console.error(err);
@@ -90,9 +99,14 @@ class ProductService{
 
     async deleteProduct(uuid){
         try{
-            const products = fs.readFileSync(__dirname + '/products.json');
-            const productsObject = JSON.parse(products);
-            const newProducts = productsObject.filter(i => i.uuid != uuid);
+            const products = await this.getProducts();
+            const newProducts = products.data.filter(i => i.uuid != uuid);
+            if(products.data.length === newProducts.length){
+                return {
+                    success: false,
+                    message: `No hay producto con ID: ${uuid}`
+                }
+            } 
             fs.writeFileSync(__dirname + '/products.json', JSON.stringify(newProducts, null, 2)); 
             return {
                 success: true,

@@ -12,15 +12,27 @@
     "uuid": "95455768-f4a7-4f19-b20c-d81e2dedd91b"
   },
   {
-    "title": "Lechuga",
-    "price": "1500",
-    "thumbnail": "https://cdn0.iconfinder.com/data/icons/vegetables-ii-color/290/06-512.png",
-    "uuid": "117842af-4328-4da7-910e-c33fb8d8a"
-  },
-  {
-    "title": "Tomate",
-    "price": "500",
+    "title": "Tomatito",
+    "price": "700",
     "thumbnail": "https://cdn4.iconfinder.com/data/icons/vegetables-i/95/02-512.png",
     "uuid": "0d6c795f-80b0-457f-b1de-3b259b75731a"
+  },
+  {
+    "title": "Papas fritas",
+    "price": "3500",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "uuid": "1bdb9745-d45e-40c4-ad78-5e996b182760"
+  },
+  {
+    "title": "Papas fritas",
+    "price": "3500",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "uuid": "b781609a-3306-431b-ba1f-47ed2bf3318c"
+  },
+  {
+    "title": "Papas fritas",
+    "price": "3500",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "uuid": "bd527dcd-8ba4-40d9-9858-12e402ef2d70"
   }
 ]

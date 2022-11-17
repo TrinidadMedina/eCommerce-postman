@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "name": "Cumpleaños",
+    "uuid": "effa09df-197d-4a2b-980a-e72d8c0a649e",
+    "time": "2022-11-17T19:21:38.208Z",
+    "products": [
+      {
+        "title": "Pera",
+        "price": 3124,
+        "thumbnail": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
+        "uuid": "3a433db4-1271-40c9-9f26-cfd59ad05a5f"
+      }
+    ]
+  },
+  {
+    "name": "Compras del mes",
+    "uuid": "fa1e8afa-ecfd-495a-9d0e-bfd43833e1ab",
+    "time": "2022-11-17T21:53:15.647Z",
+    "products": [
+      {
+        "title": "Papas fritas",
+        "price": "3500",
+        "thumbnail": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+        "uuid": "1bdb9745-d45e-40c4-ad78-5e996b182760"
+      }
+    ]
+  }
+]
