@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Pera",
+    "price": 3124,
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
+    "uuid": "3a433db4-1271-40c9-9f26-cfd59ad05a5f"
+  },
+  {
+    "title": "Helado",
+    "price": "1000",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
+    "uuid": "95455768-f4a7-4f19-b20c-d81e2dedd91b"
+  },
+  {
+    "title": "Lechuga",
+    "price": "1500",
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/vegetables-ii-color/290/06-512.png",
+    "uuid": "117842af-4328-4da7-910e-c33fb8d8a"
+  },
+  {
+    "title": "Tomate",
+    "price": "500",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/vegetables-i/95/02-512.png",
+    "uuid": "0d6c795f-80b0-457f-b1de-3b259b75731a"
+  }
+]
