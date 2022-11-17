@@ -37,5 +37,45 @@
     "stock": 43,
     "time": "2022-11-17T22:16:23.926Z",
     "uuid": "43e4d3f6-7d05-4d2d-a319-3f034bae942d"
+  },
+  {
+    "name": "Papas Fritas",
+    "description": "Comida hecha de papa frita en aceite y sal",
+    "code": 2001,
+    "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "price": 2300,
+    "stock": 43,
+    "time": "2022-11-17T22:51:21.927Z",
+    "uuid": "ca680755-b436-4d46-911b-5a631b619039"
+  },
+  {
+    "name": "Papas Fritas",
+    "description": "Comida hecha de papa frita en aceite y sal",
+    "code": 2001,
+    "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "price": 2300,
+    "stock": 43,
+    "time": "2022-11-17T22:52:01.311Z",
+    "uuid": "fb77086e-e30f-422e-abc1-9ba77595c786"
+  },
+  {
+    "name": "Papas Fritas",
+    "description": "Comida hecha de papa frita en aceite y sal",
+    "code": 2001,
+    "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "price": 2300,
+    "stock": 43,
+    "time": "2022-11-17T22:53:18.332Z",
+    "uuid": "0f48cf75-7019-48b4-acd3-ce6c06c46d00"
+  },
+  {
+    "name": "Papas Fritas",
+    "description": "Comida hecha de papa frita en aceite y sal",
+    "code": 2001,
+    "image": "https://cdn2.iconfinder.com/data/icons/food-184/512/french-fries_Snacks_potato-chips_Food-512.png",
+    "price": 2300,
+    "stock": 43,
+    "time": "2022-11-17T22:54:25.383Z",
+    "uuid": "65248dc4-c992-401a-af00-c2e600c56f0c"
   }
 ]
