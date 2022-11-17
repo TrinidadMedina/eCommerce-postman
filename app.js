@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(logger('dev'))
 
 app.use(express.static('public'));
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 
 app.use(errorHandler);
 

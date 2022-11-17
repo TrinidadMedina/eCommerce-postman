@@ -1,7 +1,7 @@
 [
   {
     "title": "Pera",
-    "price": 3124,
+    "price": "2000",
     "thumbnail": "https://cdn0.iconfinder.com/data/icons/fruits/512/Pear.png",
     "uuid": "3a433db4-1271-40c9-9f26-cfd59ad05a5f"
   },
@@ -10,6 +10,12 @@
     "price": "1000",
     "thumbnail": "https://cdn1.iconfinder.com/data/icons/smashicons-gastronomy-flat-vol-2/58/107_-_Frosted_Icecream_gastronomy_food_cooking-512.png",
     "uuid": "95455768-f4a7-4f19-b20c-d81e2dedd91b"
+  },
+  {
+    "title": "Sandía",
+    "price": "4000",
+    "thumbnail": "https://cdn4.iconfinder.com/data/icons/vegetables-60/48/Fruits_watermelon_food-512.png",
+    "uuid": "5c38b93a-ff25-46f0-aff2-3d0e2264406e"
   },
   {
     "title": "Lechuga",

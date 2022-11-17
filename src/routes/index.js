@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const productsRoutes = require('./products/products.routes')
+const productsRoutes = require('./products/products.routes');
+const carritosRoutes = require('./carritos/carritos.routes');
+
+let admin = false;
 
 router.get('/health', async (_req, res)=>{
     res.status(200).json({
@@ -9,6 +12,8 @@ router.get('/health', async (_req, res)=>{
         health: 'Up'
     })
 })
-.use('/', productsRoutes)
+.use('/productos', productsRoutes)
+.use('/carrito', carritosRoutes )
 
 module.exports = router
+
